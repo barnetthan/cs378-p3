@@ -1,8 +1,63 @@
-/* 
-  Style your elements by creating CSS classes here.
-  Below, you can see an example of a class called "menu" that changes the color of the text to blue. Modify according to your needs.
-*/
+.center {
+  display: flex;
+  justify-content: center;
+}
 
-.menu {
-  color: blue;
+#logo {
+  width: 50%;
+  height: auto;
+}
+
+#special-font {
+  color: darkred;
+  font-family: "Brush Script MT", cursive;
+}
+
+#menu-list {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item {
+  margin-bottom: 32px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
+}
+
+.menu-img {
+  border-radius: 5%;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+/* .menu-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.menu-text h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.menu-text p {
+  font-size: 12px;
+}
+
+.menu-text b {
+  font-size: 16px;
+}
+
+.menu-text button {
+  border-radius: 50px;
+  background-color: #dcdcdc;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 12px;
+  border: none;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
