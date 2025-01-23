@@ -6,7 +6,7 @@ const MenuItem = ({ item }) => {
       <div class="col-4">
         <img
           class="menu-img"
-          src={`/images/${item.imageName}`}
+          src={`${process.env.PUBLIC_URL}/images/${item.imageName}`}
           alt={`Image of ${item.title}`}
         />
       </div>

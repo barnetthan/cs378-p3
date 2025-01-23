@@ -5,7 +5,7 @@ const MenuHeader = () => {
   return (
     <>
       <div class="center">
-        <img id="logo" src="/images/logo.png" alt="Han's Wok restaraunt logo" />
+        <img id="logo" src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="Han's Wok restaraunt logo" />
       </div>
       <div class="center col-12">
         <h2 id="special-font">Authentic Japanese Cuisine</h2>
