@@ -1,8 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import MenuHeader from "./components/MenuHeader";
 import MenuItem from "./components/MenuItem";
+import MenuModal from "./components/MenuModal";
 
-// import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
+import "bootstrap/dist/css/bootstrap.min.css"; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
 // Menu data. An array of objects where each object represents a menu item. Each menu item has an id, title, description, image name, and price.
 // You can use the image name to get the image from the images folder.
@@ -80,15 +82,56 @@ const menuItems = [
 ];
 
 function App() {
+  const [orderTotal, setOrderTotal] = useState(0);
+  const [quantities, setQuantities] = useState(Array(menuItems.length).fill(0));
+  const [modalOpen, setModalOpen] = useState(false);
+
+  function handleClear() {
+    setOrderTotal(0);
+    setQuantities(Array(menuItems.length).fill(0));
+  }
+
   return (
-    <>
+    <div>
       <MenuHeader />
-      <div class="container center row" id="menu-list">
-        {menuItems.map((item) => {
-          return <MenuItem item={item} />;
+      <MenuModal
+        open={modalOpen}
+        setOpen={setModalOpen}
+        quantities={quantities}
+        setQuantities={setQuantities}
+        orderTotal={orderTotal}
+        setOrderTotal={setOrderTotal}
+        menu={menuItems}
+      />
+      <div className="container center row d-flex" id="menu-list">
+        {menuItems.map((item, index) => {
+          return (
+            <MenuItem
+              item={item}
+              total={orderTotal}
+              setTotal={setOrderTotal}
+              quantities={quantities}
+              setQuantities={setQuantities}
+              i={index}
+            />
+          );
         })}
       </div>
-    </>
+      <div className="center d-flex justify-content-evenly mb-5">
+        <b>Subtotal: ${orderTotal.toFixed(2)}</b>
+        <button className="general-button-red" onClick={handleClear}>
+          Clear All
+        </button>
+        <button
+          className="general-button-green"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Order
+        </button>
+      </div>
+    </div>
   );
 }
 

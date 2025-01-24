@@ -1,24 +1,43 @@
-import React from "react";
+import React, {useState} from "react";
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item, total, setTotal, quantities, setQuantities, i }) => {
+
+  function handleIncrement() {
+    let arr = [...quantities];
+    arr[i]++;
+    setTotal(Math.round((total + item.price) * 100) / 100);
+    setQuantities(arr);
+  }
+
+  function handleDecrement() {
+    if (quantities[i] > 0) {
+      let arr = [...quantities];
+      arr[i]--;
+      setTotal(Math.round((total - item.price) * 100) / 100);
+      setQuantities(arr);
+    }
+  }
+
   return (
-    <div class="row menu-item">
-      <div class="col-4">
+    <div className="row menu-item">
+      <div className="col-4">
         <img
-          class="menu-img"
+          className="menu-img"
           src={`${process.env.PUBLIC_URL}/images/${item.imageName}`}
           alt={`Image of ${item.title}`}
         />
       </div>
-      <div class="col-8 menu-text">
+      <div className="col-8 menu-text">
         <h2>{item.title}</h2>
         <p>{item.description}</p>
-        <div class="row">
-          <div class="col-8">
+        <div className="row">
+          <div className="col-7">
             <b>{item.price}</b>
           </div>
-          <div class="col-2">
-            <button>Add</button>
+          <div className="col-2 d-flex">
+            <button onClick={() => {handleDecrement()}}>-</button>
+            {quantities[i]}
+            <button onClick={() => {handleIncrement()}}>+</button>
           </div>
         </div>
       </div>

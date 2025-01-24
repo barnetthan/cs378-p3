@@ -4,13 +4,13 @@ import "../App.css";
 const MenuHeader = () => {
   return (
     <>
-      <div class="center">
+      <div className="center">
         <img id="logo" src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="Han's Wok restaraunt logo" />
       </div>
-      <div class="center col-12">
+      <div className="center col-12">
         <h2 id="special-font">Authentic Japanese Cuisine</h2>
       </div>
-      <div class="center col-12">
+      <div className="center col-12">
         <h1>UT's best Asian food!</h1>
       </div>
     </>
