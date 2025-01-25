@@ -17,8 +17,8 @@ const MenuModal = ({
   }
 
   function handleOrder() {
-    setOrderTotal(0);
-    setQuantities(Array(menu.length).fill(0));
+    // setOrderTotal(0);
+    // setQuantities(Array(menu.length).fill(0));
     setOrderComplete(true);
   }
 

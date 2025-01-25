@@ -103,19 +103,23 @@ function App() {
         setOrderTotal={setOrderTotal}
         menu={menuItems}
       />
-      <div className="container center row d-flex" id="menu-list">
-        {menuItems.map((item, index) => {
-          return (
-            <MenuItem
-              item={item}
-              total={orderTotal}
-              setTotal={setOrderTotal}
-              quantities={quantities}
-              setQuantities={setQuantities}
-              i={index}
-            />
-          );
-        })}
+      <div
+        className="d-flex flex-column justify-content-center align-items-center"
+      >
+        <div className="container center row d-flex" id="menu-list">
+          {menuItems.map((item, index) => {
+            return (
+              <MenuItem
+                item={item}
+                total={orderTotal}
+                setTotal={setOrderTotal}
+                quantities={quantities}
+                setQuantities={setQuantities}
+                i={index}
+              />
+            );
+          })}
+        </div>
       </div>
       <div className="center d-flex justify-content-evenly mb-5">
         <b>Subtotal: ${orderTotal.toFixed(2)}</b>
